@@ -5,8 +5,8 @@ const booksSchema = new mongoose.Schema({
         type: String
     },
     bookTitle: {
-        type: String,
-        required: "this field is required"
+        type: String
+        /* required: "this field is required" */
     },
     publicationYear: {
         type: Number
@@ -27,5 +27,5 @@ const booksSchema = new mongoose.Schema({
     return emailRegex.test(val);
 }, "Invalid E-mail")
  */
-mongoose.model("myBooks", booksSchema)
+mongoose.model("MyBooks", booksSchema)
 

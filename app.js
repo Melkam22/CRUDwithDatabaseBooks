@@ -1,12 +1,12 @@
 require("./models/db");
 const express = require("express");
-const booksController = require("./controllers/booksController");
  
 const path = require("path");
 const exphbs = require("express-handlebars");
-const app = express();
 //to send data to database 1
 const bodyParser = require("body-parser");
+const booksController = require("./controllers/booksController");
+const app = express();
 
 //to send data to database 2
 app.use(bodyParser.urlencoded({
