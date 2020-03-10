@@ -9,6 +9,11 @@ router.get("/", (req, res)=>{
     res.render("books/addOrEdit", {viewTitle: "Insert Books"})
 })
 
+//push data to database
+router.post("/", (req, res)=>{
+  console.log(req.body)  
+})
+
 
 
 

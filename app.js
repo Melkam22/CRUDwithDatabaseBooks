@@ -4,9 +4,10 @@ const booksController = require("./controllers/booksController");
  
 const path = require("path");
 const exphbs = require("express-handlebars");
+const app = express();
 //to send data to database 1
 const bodyParser = require("body-parser");
-const app = express();
+
 //to send data to database 2
 app.use(bodyParser.urlencoded({
     extended: true
