@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            .pencil{
+                color: black;
+                font-size: 28px;   
+            }
+            .dlt{
+               color: orangered;
+                font-size: 28px;  
+            }
+
+        </style>
+    </head>
+</html>
+
+
+
+
+
+<h2><a class="btn btn-primary" href="/books"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add to Books List</a></h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Author-Name</th>
+            <th>Book-Title</th>
+            <th>Publication-Year</th>
+            <th>Published-At</th>
+            <th>Language</th>
+            <th>Availability</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.authorName}}</td>
+            <td>{{this.bookTitle}}</td>
+            <td>{{this.publicationYear}}</td>
+            <td>{{this.publishedAt}}</td>
+            <td>{{this.currentLanguage}}</td>
+            <td>{{this.availability}}</td>
+             <td>
+            <a href="/books/{{this._id}}" class="pencil"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!--  <a href="/books/delete/{{this._id}}" onclick="return confirm("Sure to Delete?");" class="dlt"><i class="fa fa-eraser" aria-hidden="true"></i></a> --}}
