@@ -45,9 +45,9 @@ books.save((err, doc)=>{
 }
 //updateBooks function
 function updateBooks(req, res){
-    MyBooks.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc)=>{
+    MyBooks.findByIdAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc)=>{
         if(!err){
-            res.redirect("/books/list")
+            res.redirect("books/list")
         } else {
             if(err.name == "ValidationError"){
                 handleValidationError(err.req.body)
@@ -80,9 +80,6 @@ MyBooks.find((err, docs)=>{
 function handleValidationError(err, body){
     for(field in err.errors){
         switch (err.errors[field].path){
-            case "authorName":
-                    body ["authorNameError"] = err.errors[field].message;
-                    break;
             case "bookTitle":
                 body ["bookTitleError"] = err.errors [field].message;
                 break;
