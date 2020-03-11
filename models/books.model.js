@@ -5,8 +5,9 @@ const booksSchema = new mongoose.Schema({
         type: String
     },
     bookTitle: {
-        type: String
-        /* required: "this field is required"  */
+        type: String,
+        required: "this field is required",
+        maxLength: 7
     },
     publicationYear: {
         type: Number
@@ -25,7 +26,7 @@ const booksSchema = new mongoose.Schema({
 /* booksSchema.path('bookTitle').validate((val)=> {
    bookTitleValidate = '/^.{0,20}$/'
    return bookTitleValidate.test(val);
-}, "Invalid Book Title") */
+}, "Invalid Book Title")  */
 
 mongoose.model("MyBooks", booksSchema)
 
