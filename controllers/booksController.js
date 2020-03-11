@@ -102,6 +102,16 @@ router.get("/:id", (req, res)=>{
         }
     })
 })
+//delete route and function
+router.get("/delete/:id", (req, res)=>{
+    MyBooks.findByIdAndRemove(req.params.id, (err, doc)=>{
+        if(!err){
+            res.redirect("/books/list")
+        } else {
+            console.log("Error arise during delete operation" + err)
+        }
+    })
+})
 
 
 module.exports = router;
