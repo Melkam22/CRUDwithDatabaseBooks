@@ -6,8 +6,7 @@ const booksSchema = new mongoose.Schema({
     },
     bookTitle: {
         type: String,
-        required: "this field is required",
-        maxLength: 7
+        required: "this field is required"
     },
     publicationYear: {
         type: Number
