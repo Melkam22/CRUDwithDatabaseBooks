@@ -44,7 +44,7 @@
             <td>{{this.availability}}</td>
              <td>
             <a href="/books/{{this._id}}" class="pencil"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            <a href="/books/delete/{{this._id}}" class="dlt"><i class="fa fa-eraser" aria-hidden="true"></i></a>
+            <a href="/books/delete/{{this._id}}" data-confirm="Are you sure to delete this item?" class="dlt"><i class="fa fa-eraser" aria-hidden="true"></i></a>
             </td>
         </tr>
         {{/each}}
