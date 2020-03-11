@@ -5,8 +5,8 @@ const booksSchema = new mongoose.Schema({
         type: String
     },
     bookTitle: {
-        type: String
-        /* required: "this field is required" */
+        type: String,
+        required: "this field is required" 
     },
     publicationYear: {
         type: Number
@@ -22,10 +22,9 @@ const booksSchema = new mongoose.Schema({
     }
 })
 //validation for email
-/* employeeSchema.path("email").validate((val)=>{
-    emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    return emailRegex.test(val);
-}, "Invalid E-mail")
- */
+booksSchema.path("bookTitle").validate((val)=>{
+    bookTitleValidate = "^(\b\S+\b\s*){0,5}$" /* /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ */
+    return bookTitleValidate.test(val);
+}, "Invalid Book Title")  
 mongoose.model("MyBooks", booksSchema)
 
