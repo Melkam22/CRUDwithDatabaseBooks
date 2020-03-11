@@ -1,7 +1,7 @@
 <h3>{{viewTitle}}</h3>
 
 <form action="/books" method="POST" autocomplete="off">
-{{!-- <input type="hidden" name="_id" value="{{books._id}}"> --}}{{!-- for edit function --}}
+<input type="hidden" name="_id" value="{{books._id}}">{{!-- for edit function show all along with id--}}
     <div class="form-group">
         <label>Author Name</label>
         <input type="text" class="form-control" name="authorName"

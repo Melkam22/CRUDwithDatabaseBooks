@@ -12,10 +12,10 @@ router.get("/", (req, res)=>{
 //push data to database, inserted infos showen on terminal below to show them on the dom
 router.post("/", (req, res)=>{
   //console.log(req.body)  
-  //if(req.body._id == "")
+  if(req.body._id == "")
   insertBooks(req,res)
-//else
-  //updateBooks(req, res) 
+else
+  updateBooks(req, res) 
 })
 function insertBooks(req,res){
     let books = new MyBooks();
@@ -42,6 +42,23 @@ books.save((err, doc)=>{
     
 }
 })
+}
+//updateBooks function
+function updateBooks(req, res){
+    MyBooks.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc)=>{
+        if(!err){
+            res.redirect("/books/list")
+        } else {
+            if(err.name == "ValidationError"){
+                handleValidationError(err.req.body)
+                res.render("books/addOrEdit",
+                {viewTitle: "Update Books",
+                books: req.body  
+            })
+            }
+            else console.log("Error in recording Updates", + err)
+        }
+    })
 }
  
  
@@ -74,6 +91,17 @@ function handleValidationError(err, body){
         }
     }
 } 
+//update route and function
+router.get("/:id", (req, res)=>{
+    MyBooks.findById(req.params.id, (err, doc)=>{
+        if(!err){
+            res.render("books/addOrEdit", 
+            {viewTitle: "Update Books",
+            books: doc
+        })
+        }
+    })
+})
 
 
 module.exports = router;
